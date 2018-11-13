@@ -27,7 +27,7 @@ XCOPY /S data %RELEASE_DIR%\data
 del %RELEASE_DIR%\data\test_city\!run.bat
 echo ..\..\bin\polaris.exe scenario_init.json 1 > %RELEASE_DIR%\data\test_city\!run.bat
 
-zip %RELEASE_DIR%
+zip -r polaris-%RELEASE_NAME%.zip polaris-%RELEASE_NAME%
 
 ENDLOCAL
 
