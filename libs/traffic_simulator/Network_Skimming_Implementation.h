@@ -431,14 +431,8 @@ namespace Network_Skimming_Components
 				zones_itf* zones_container = network->template zones_container<zones_itf*>();
 
 				// get appropriate sorted ttimes based on mode indicator
-				std::vector<pair<float, unsigned short>>& ttime_sorter = this->_transit_travel_time_sorter[origin_index];
+				std::vector<pair<float, unsigned short>>& ttime_sorter = (mode_indicator == Vehicle_Components::Types::Vehicle_Type_Keys::SOV) ? this->_auto_travel_time_sorter[origin_index] : this->_transit_travel_time_sorter[origin_index];
 
-				if (mode_indicator == Vehicle_Components::Types::Vehicle_Type_Keys::SOV)
-				{
-					ttime_sorter= this->_auto_travel_time_sorter[origin_index];
-				}
-
-	
 				// forward search - best when using small min_time
 				if (search_forward)
 				{
